@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export interface CurrencyRate {
+export type CurrencyRate = {
   code: string;
   alphaCode: string;
   numericCode: string;

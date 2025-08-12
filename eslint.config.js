@@ -52,6 +52,7 @@ const eslintConfig = config(
       },
     },
     rules: {
+      "indent": ['error', 2],
       "no-undef": [0],
       "@typescript-eslint/consistent-type-definitions": [2, "type"],
       "@typescript-eslint/consistent-type-imports": [
