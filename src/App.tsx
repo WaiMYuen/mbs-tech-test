@@ -1,15 +1,15 @@
 import React, { useState } from "react"
 import "./App.css"
-import CurrencyList from "./components/currencyList"
+import { CurrencyPickers } from "./components/currencyPickers"
+import AmountForm from "./components/amountForm"
+import ConversionResult from "./components/conversionResult"
 
 export default function App() {
-  const [selectedCurrency, setSelectedCurrency] = useState("")
   return (
     <div className="App">
-      <CurrencyList
-        value={selectedCurrency}
-        onChange={setSelectedCurrency}
-      />
+      <AmountForm />
+      <CurrencyPickers />
+      <ConversionResult />
     </div>
   )
 }

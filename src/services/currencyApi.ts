@@ -16,8 +16,8 @@ export const currencyApi = createApi({
   reducerPath: 'currencyApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://www.floatrates.com/daily/' }),
   endpoints: (builder) => ({
-    getRates: builder.query<CurrencyResponse, void>({
-      query: () => 'gbp.json',
+    getRates: builder.query<CurrencyResponse, string>({
+      query: (baseCode) => `${baseCode.toLowerCase()}.json`,
     }),
   }),
 });

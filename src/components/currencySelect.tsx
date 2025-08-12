@@ -18,19 +18,25 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-interface CurrencyListProps {
+interface CurrencySelectProps {
   value: string,
-  onChange: (value: string) => void
+  onChange: (value: string) => void,
+  fetchBaseCode?: string
 }
 
-export default function CurrencyList({ value, onChange }: CurrencyListProps) {
-  const { data, error, isLoading } = useGetRatesQuery();
+export default function CurrencySelect({
+  value,
+  onChange,
+  fetchBaseCode = 'gbp'
+}: CurrencySelectProps) {
+  const { data, error, isLoading } = useGetRatesQuery(fetchBaseCode);
   const [open, setOpen] = useState(false)
   const currencies = Object.values(data ?? {});
-  console.log(currencies)
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Something went wrong</p>;
+
+  console.log(value)
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
