@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useGetRatesQuery } from '../services/currencyApi';
+import { isGBPSelected } from './helpers';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -18,25 +18,29 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
+type CurrencyOption = { code: string; name: string };
+
 interface CurrencySelectProps {
   value: string,
   onChange: (value: string) => void,
-  fetchBaseCode?: string
+  currencies: CurrencyOption[],
+  placeholder?: string,
+  loading?: boolean,
 }
 
 export default function CurrencySelect({
   value,
   onChange,
-  fetchBaseCode = 'gbp'
+  currencies,
+  placeholder = "Select currency",
+  loading = false,
 }: CurrencySelectProps) {
-  const { data, error, isLoading } = useGetRatesQuery(fetchBaseCode);
   const [open, setOpen] = useState(false)
-  const currencies = Object.values(data ?? {});
+  const selectedCurrency = currencies?.find(c => c.code === value);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>Something went wrong</p>;
+  const selectedCurrencyText = selectedCurrency ? isGBPSelected(selectedCurrency) : placeholder
 
-  console.log(value)
+  console.log("Selected Currency:", selectedCurrency);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -47,16 +51,13 @@ export default function CurrencySelect({
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
-          {value
-            ? currencies.find((c) => c.code === value)?.name
-            : 'Select currency'
-          }
+          {loading? "Loading..." : selectedCurrencyText}
           <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent>
         <Command>
-          <CommandInput placeholder="Search currency..." />
+          <CommandInput placeholder={"Search Currency"} />
           <CommandList>
             <CommandEmpty>No currency found</CommandEmpty>
             <CommandGroup>

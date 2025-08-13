@@ -8,6 +8,7 @@ export const amountFormSchema = z.object({
       (val) => /^\d+(\.\d{1,2})?$/.test(val),
       "Must be a positive number with up to 2 decimals"
     )
+    .refine((val) => !isNaN(Number(val)), "Must be a number")
 })
 
 export type AmountFormData = z.infer<typeof amountFormSchema>

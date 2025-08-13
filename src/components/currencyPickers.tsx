@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBaseCurrency, setTargetCurrency } from "../features/conversion/conversionSlice";
 import { RootState } from "../app/store";
-import CurrencySelect from "./currencySelect";
+import CurrencySelectContainer from "./currencySelect/currencySelectContainer";
 
 export function CurrencyPickers() {
   const dispatch = useDispatch();
@@ -12,15 +12,17 @@ export function CurrencyPickers() {
 
   return (
     <div className="flex items-center space-x-4">
-      <CurrencySelect
+      <CurrencySelectContainer
         value={baseCurrency}
         onChange={(val) => dispatch(setBaseCurrency(val))}
-        fetchBaseCode="gbp"
+        baseCode="gbp"
+        includeBase
       />
-      <CurrencySelect
+      <CurrencySelectContainer
         value={targetCurrency}
         onChange={(val) => dispatch(setTargetCurrency(val))}
-        fetchBaseCode={baseCurrency}
+        baseCode={baseCurrency}
+        filterOut={baseCurrency}
       />
     </div>
   );
