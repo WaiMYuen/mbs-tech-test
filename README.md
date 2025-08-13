@@ -10,7 +10,7 @@ Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Test
 - `npm run test` - to run test suite
 
 ## Introduction
-App is a currency conversion app that uses https://www.floatrates.com/daily/[code].json as the endpoint to grab the conversion rate and currency code/info. 
+App is a currency conversion app that uses `https://www.floatrates.com/daily/[code].json` as the endpoint to grab the conversion rate and currency code/info. 
 The app allows a user to convert any dispalyed currency to anyother currency, it uses redux to store the `baseCurrency` and `targetCurency` as well as the `amount` of currency wanting to be converted.
 [shadcn](https://ui.shadcn.com/) is used as a component library, along with [Tailwind CSS](https://tailwindcss.com/), Shadcn is built with Tailwind so it makes composing the styles easier. For form valdiation I used the [Zod](https://zod.dev/) library, this is due to it being a Typescript-first library that is well supported.
 
