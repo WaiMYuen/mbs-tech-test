@@ -27,10 +27,7 @@ describe("CurrencyPickers", () => {
       </Provider>
     );
 
-    // Check if the base currency select is rendered
     expect(screen.getByText("US Dollar (USD)")).toBeInTheDocument();
-
-    // Check if the target currency select is rendered
     expect(screen.getByText("Euro (EUR)")).toBeInTheDocument();
   });
 });
