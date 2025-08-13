@@ -30,4 +30,4 @@ The app allows a user to convert any displayed currency to any other currency, i
 - Avoided mocking `useDispatch` to ensure we test against rendered state vs Redux internals
 
 ### Notes
--  Had I more time, i would've liked to include more accessibility options in such as aria-labels to better enable screen-readers and assistive technologies. Also would've liked to have the differences between smaller and larger screen sizes to be more pronounced.
+-  Had I more time, i would've liked to include more accessibility options in such as aria-labels to better enable screen-readers and assistive technologies. Also would've liked to have the differences between smaller and larger screen sizes to be more pronounced, along with adding more vibrant elements to the Currency card to fill out the space on larger screens
