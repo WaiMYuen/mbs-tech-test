@@ -1,14 +1,13 @@
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 
 import { setBaseCurrency, setTargetCurrency } from "@/features/conversion/conversionSlice";
-import type { RootState } from "@/app/store";
 import CurrencySelectContainer from "../currencySelect/currencySelectContainer";
 import { ArrowRightLeft  } from "lucide-react";
 
 export default function CurrencyPickers() {
   const dispatch = useAppDispatch();
   const { baseCurrency, targetCurrency } = useAppSelector(
-    (state: RootState) => state.conversion
+    state => state.conversion
   );
 
   return (

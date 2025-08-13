@@ -23,8 +23,11 @@ The app allows a user to convert any dispalyed currency to anyother currency, it
 - `Zod` and `react-hook-form` for ease of validation as well as ensuring type sage validation for `amountForm`
 
 ### Component Design
-- Each element has been seperated out when in makes sense to ensure API logic is kept isolated, making testing for UI much easier
+- Each element has been seperated out when in makes sense to ensure API logic is kept isolated, making testing for UI much easier. Ensured to communicate the loading of the currency list from within the button (`currencySelect`) to ensure CLS is low
 
 ### Testing
 - Tested components with a `Provider` to match redux context
 - Avoided mocking `useDispatch` to ensure we test against rendered state vs Redux iteself
+
+### Notes
+-  Had I more time, i would've liked to include more accessibility options in such as aria-labels to better enable screen-readers and assistive technologies. Also would've liked to have the differences between smaller and larger screen sizes to be more pronounced.

@@ -1,10 +1,9 @@
 import { useAppSelector } from "@/app/hooks";
-import type { RootState } from "@/app/store";
 import { useGetRatesQuery } from "@/services/currencyApi";
 
 export default function ConversionResult() {
   const { baseCurrency, targetCurrency, amount } = useAppSelector(
-    (state: RootState) => state.conversion
+    state => state.conversion
   );
 
   const { data, isLoading, error } = useGetRatesQuery(baseCurrency);
