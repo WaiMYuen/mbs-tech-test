@@ -11,7 +11,7 @@ Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Test
 
 ## Introduction
 App is a currency conversion app that uses `https://www.floatrates.com/daily/[code].json` as the endpoint to grab the conversion rate and currency code/info. 
-The app allows a user to convert any dispalyed currency to anyother currency, it uses redux to store the `baseCurrency` and `targetCurency` as well as the `amount` of currency wanting to be converted.
+The app allows a user to convert any displayed currency to any other currency, it uses redux to store the `baseCurrency` and `targetCurency` as well as the `amount` of currency wanting to be converted.
 [shadcn](https://ui.shadcn.com/) is used as a component library, along with [Tailwind CSS](https://tailwindcss.com/), Shadcn is built with Tailwind so it makes composing the styles easier. For form valdiation I used the [Zod](https://zod.dev/) library, this is due to it being a Typescript-first library that is well supported.
 
 ## Architecture & Decisions
@@ -27,7 +27,7 @@ The app allows a user to convert any dispalyed currency to anyother currency, it
 
 ### Testing
 - Tested components with a `Provider` to match redux context
-- Avoided mocking `useDispatch` to ensure we test against rendered state vs Redux iteself
+- Avoided mocking `useDispatch` to ensure we test against rendered state vs Redux internals
 
 ### Notes
 -  Had I more time, i would've liked to include more accessibility options in such as aria-labels to better enable screen-readers and assistive technologies. Also would've liked to have the differences between smaller and larger screen sizes to be more pronounced.
