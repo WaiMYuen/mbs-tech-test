@@ -1,6 +1,6 @@
-import CurrencyPickers from "./components/currencyPickers"
-import AmountForm from "./components/amountForm"
-import ConversionResult from "./components/conversionResult"
+import CurrencyPickers from "@/components/currencyPickers/currencyPickers"
+import AmountForm from "@/components/amountForm/amountForm"
+import ConversionResult from "@/components/conversionResult/conversionResult"
 
 export default function App() {
   return (

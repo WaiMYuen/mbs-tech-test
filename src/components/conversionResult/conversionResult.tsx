@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../app/store";
-import { useGetRatesQuery } from "../services/currencyApi";
+import { useAppSelector } from "@/app/hooks";
+import type { RootState } from "@/app/store";
+import { useGetRatesQuery } from "@/services/currencyApi";
 
 export default function ConversionResult() {
-  const { baseCurrency, targetCurrency, amount } = useSelector(
+  const { baseCurrency, targetCurrency, amount } = useAppSelector(
     (state: RootState) => state.conversion
   );
 

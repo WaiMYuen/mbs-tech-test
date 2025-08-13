@@ -18,15 +18,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-type CurrencyOption = { code: string; name: string };
-
-interface CurrencySelectProps {
-  value: string,
-  onChange: (value: string) => void,
-  currencies: CurrencyOption[],
-  placeholder?: string,
-  loading?: boolean,
-}
+import type { CurrencySelectProps } from './types';
 
 export default function CurrencySelect({
   value,
@@ -36,7 +28,7 @@ export default function CurrencySelect({
   loading = false,
 }: CurrencySelectProps) {
   const [open, setOpen] = useState(false)
-  const selectedCurrency = currencies?.find(c => c.code === value);
+  const selectedCurrency = currencies.find(c => c.code === value);
 
   const selectedCurrencyText = selectedCurrency ? isGBPSelected(selectedCurrency) : placeholder
 

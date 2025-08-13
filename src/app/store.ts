@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { currencyApi } from "../services/currencyApi"
-import conversionReducer from "../features/conversion/conversionSlice"
+import { currencyApi } from "@/services/currencyApi"
+import conversionReducer from "@/features/conversion/conversionSlice"
 
 export const store = configureStore({
   reducer:{

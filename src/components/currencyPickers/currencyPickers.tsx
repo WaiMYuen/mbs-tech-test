@@ -1,12 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
-import { setBaseCurrency, setTargetCurrency } from "../features/conversion/conversionSlice";
-import { RootState } from "../app/store";
-import CurrencySelectContainer from "./currencySelect/currencySelectContainer";
+import { useAppDispatch, useAppSelector } from "@/app/hooks";
+
+import { setBaseCurrency, setTargetCurrency } from "@/features/conversion/conversionSlice";
+import type { RootState } from "@/app/store";
+import CurrencySelectContainer from "../currencySelect/currencySelectContainer";
 import { ArrowRightLeft  } from "lucide-react";
 
 export default function CurrencyPickers() {
-  const dispatch = useDispatch();
-  const { baseCurrency, targetCurrency } = useSelector(
+  const dispatch = useAppDispatch();
+  const { baseCurrency, targetCurrency } = useAppSelector(
     (state: RootState) => state.conversion
   );
 

@@ -4,8 +4,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import CurrencySelectContainer from "./currencySelectContainer";
 import { conversionSlice } from "@/features/conversion/conversionSlice";
 
-import * as currencyApi from "../../services/currencyApi";
-import { Mock } from "vitest";
+import * as currencyApi from "@/services/currencyApi";
+import type { Mock } from "vitest";
 
 vi.mock("@/services/currencyApi");
 

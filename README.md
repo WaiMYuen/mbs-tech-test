@@ -1,27 +1,30 @@
-# vite-template-redux
+# mbs-tech-test
 
 Uses [Vite](https://vitejs.dev/), [Vitest](https://vitest.dev/), and [React Testing Library](https://github.com/testing-library/react-testing-library) to create a modern [React](https://react.dev/) app compatible with [Create React App](https://create-react-app.dev/)
 
-```sh
-npx tiged reduxjs/redux-templates/packages/vite-template-redux my-app
-```
 
-## Goals
+## To start
 
-- Easy migration from Create React App or Vite
-- As beginner friendly as Create React App
-- Optimized performance compared to Create React App
-- Customizable without ejecting
+- `npm install`
+- `npm run dev` - to start the app
+- `npm run test` - to run test suite
 
-## Scripts
+## Introduction
+App is a currency conversion app that uses https://www.floatrates.com/daily/[code].json as the endpoint to grab the conversion rate and currency code/info. 
+The app allows a user to convert any dispalyed currency to anyother currency, it uses redux to store the `baseCurrency` and `targetCurency` as well as the `amount` of currency wanting to be converted.
+[shadcn](https://ui.shadcn.com/) is used as a component library, along with [Tailwind CSS](https://tailwindcss.com/), Shadcn is built with Tailwind so it makes composing the styles easier. For form valdiation I used the [Zod](https://zod.dev/) library, this is due to it being a Typescript-first library that is well supported.
 
-- `dev`/`start` - start dev server and open browser
-- `build` - build for production
-- `preview` - locally preview production build
-- `test` - launch test runner
+## Architecture & Decisions
+### Data and redux
+- Data fetching is encapsulated in `currencyApi.ts` and mocked to avoid network calls in unit testing
+- Redux toolkit and RTK query handles state update (`conversionSlice`) and the currency rate fetching alongside error and loading states.
 
-## Inspiration
+### Form handling
+- `Zod` and `react-hook-form` for ease of validation as well as ensuring type sage validation for `amountForm`
 
-- [Create React App](https://github.com/facebook/create-react-app/tree/main/packages/cra-template)
-- [Vite](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react)
-- [Vitest](https://github.com/vitest-dev/vitest/tree/main/examples/react-testing-lib)
+### Component Design
+- Each element has been seperated out when in makes sense to ensure API logic is kept isolated, making testing for UI much easier
+
+### Testing
+- Tested components with a `Provider` to match redux context
+- Avoided mocking `useDispatch` to ensure we test against rendered state vs Redux iteself

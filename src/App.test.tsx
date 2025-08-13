@@ -1,16 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-// Mock child components to isolate App tests
-vi.mock("./components/currencyPickers", () => ({
+vi.mock("@/components/currencyPickers/currencyPickers", () => ({
   default: () => <div data-testid="currency-pickers" />,
 }));
 
-vi.mock("./components/amountForm", () => ({
+vi.mock("@/components/amountForm/amountForm", () => ({
   default: () => <div data-testid="amount-form" />,
 }));
 
-vi.mock("./components/conversionResult", () => ({
+vi.mock("@/components/conversionResult/conversionResult", () => ({
   default: () => <div data-testid="conversion-result" />,
 }));
 

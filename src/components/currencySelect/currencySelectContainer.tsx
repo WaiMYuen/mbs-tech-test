@@ -1,10 +1,10 @@
-import { useGetRatesQuery } from "../../services/currencyApi"
+import { useGetRatesQuery } from "@/services/currencyApi"
 import CurrencySelect from "./currencySelect"
 
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"
 import { AlertCircle } from "lucide-react"
 
-interface Props {
+type Props = {
   value: string;
   onChange: (value: string) => void;
   baseCode: string;

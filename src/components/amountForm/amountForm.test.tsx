@@ -33,13 +33,9 @@ describe("AmountForm", () => {
     const input = screen.getByLabelText(/Amount/i);
     const submitButton = screen.getByRole("button", { name: /Submit/i });
 
-    // Initially disabled
     expect(submitButton).toBeDisabled();
-
-    // Enter a valid number
     await userEvent.type(input, "42");
 
-    // Button should now be enabled
     expect(submitButton).toBeEnabled();
   });
 

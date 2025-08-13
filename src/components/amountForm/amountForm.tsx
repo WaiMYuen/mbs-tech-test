@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { amountFormSchema, AmountFormData } from "../components/schema/amountFormSchema"
-import { useDispatch } from "react-redux";
-import { setAmount } from "../features/conversion/conversionSlice";
+import type { AmountFormData } from "@/components/schema/amountFormSchema";
+import { amountFormSchema } from "@/components/schema/amountFormSchema"
+import { useAppDispatch } from "@/app/hooks";
+import { setAmount } from "@/features/conversion/conversionSlice";
 
 import { Button } from "@/components/ui/button"
 import {
@@ -16,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input"
 
 export default function AmountForm() {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const form = useForm<AmountFormData>({
     resolver: zodResolver(amountFormSchema),

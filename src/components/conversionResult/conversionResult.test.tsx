@@ -5,7 +5,7 @@ import ConversionResult from "./conversionResult";
 import { conversionSlice } from "@/features/conversion/conversionSlice";
 
 import * as currencyApi from "@/services/currencyApi";
-import { Mock } from "vitest";
+import type { Mock } from "vitest";
 
 vi.mock("@/services/currencyApi");
 

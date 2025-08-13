@@ -13,7 +13,7 @@ describe("CurrencySelect", () => {
     render(
       <CurrencySelect
         value=""
-        onChange={() => {}}
+        onChange={vi.fn()}
         currencies={currencies}
         placeholder="Select currency"
       />
@@ -26,7 +26,7 @@ describe("CurrencySelect", () => {
     render(
       <CurrencySelect
         value="USD"
-        onChange={() => {}}
+        onChange={vi.fn()}
         currencies={currencies}
       />
     );
@@ -59,7 +59,7 @@ describe("CurrencySelect", () => {
     render(
       <CurrencySelect
         value=""
-        onChange={() => {}}
+        onChange={vi.fn()}
         currencies={currencies}
         loading={true}
       />
