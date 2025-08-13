@@ -59,11 +59,13 @@ export default function CurrencySelectContainer({
   );
 
   return (
-    <CurrencySelect
-      value={value}
-      onChange={onChange}
-      currencies={currencyOptions}
-      loading={isLoading}
-    />
+    <div className="p-2 lg:p-4 m-0">
+      <CurrencySelect
+        value={value}
+        onChange={onChange}
+        currencies={currencyOptions}
+        loading={isLoading}
+      />
+    </div>
   );
 }

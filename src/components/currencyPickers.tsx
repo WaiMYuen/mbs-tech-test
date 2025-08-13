@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setBaseCurrency, setTargetCurrency } from "../features/conversion/conversionSlice";
 import { RootState } from "../app/store";
 import CurrencySelectContainer from "./currencySelect/currencySelectContainer";
+import { ArrowRightLeft  } from "lucide-react";
 
 export function CurrencyPickers() {
   const dispatch = useDispatch();
@@ -11,13 +12,14 @@ export function CurrencyPickers() {
   );
 
   return (
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center space-x-4 flex-col lg:flex-row">
       <CurrencySelectContainer
         value={baseCurrency}
         onChange={(val) => dispatch(setBaseCurrency(val))}
         baseCode="gbp"
         includeBase
       />
+      <ArrowRightLeft className="m-0" />
       <CurrencySelectContainer
         value={targetCurrency}
         onChange={(val) => dispatch(setTargetCurrency(val))}

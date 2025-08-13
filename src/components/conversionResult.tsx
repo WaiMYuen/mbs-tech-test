@@ -14,11 +14,17 @@ export default function ConversionResult() {
   if (error) return <p>Error fetching rates</p>;
   if (!data || !(targetCurrency.toLowerCase() in data)) return null;
 
+  const exampleConversion = 1 * data[targetCurrency.toLowerCase()].rate
   const converted = parseFloat(amount) * data[targetCurrency.toLowerCase()].rate;
 
   return (
-    <p className="text-lg font-semibold">
-      {amount} {baseCurrency} = {converted.toFixed(2)} {targetCurrency}
-    </p>
+    <div className="mt-4 p-4 rounded shadow-md bg-indigo-300">
+      <p className="text-md ">
+        {1} {baseCurrency} = {exampleConversion.toFixed(2)} {targetCurrency}
+      </p>
+      <h2 className="text-2xl font-bold">
+        {amount} {baseCurrency} = {converted.toFixed(2)} {targetCurrency}
+      </h2>
+    </div>
   );
 }
