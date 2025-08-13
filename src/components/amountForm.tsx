@@ -2,9 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { amountFormSchema, AmountFormData } from "../components/schema/amountFormSchema"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAmount } from "../features/conversion/conversionSlice";
-import { RootState } from "../app/store";
 
 import { Button } from "@/components/ui/button"
 import {

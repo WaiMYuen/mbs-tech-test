@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { isGBPSelected } from './helpers';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
@@ -39,8 +39,6 @@ export default function CurrencySelect({
   const selectedCurrency = currencies?.find(c => c.code === value);
 
   const selectedCurrencyText = selectedCurrency ? isGBPSelected(selectedCurrency) : placeholder
-
-  console.log("Selected Currency:", selectedCurrency);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

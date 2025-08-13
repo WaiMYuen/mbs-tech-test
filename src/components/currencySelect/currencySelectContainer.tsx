@@ -9,7 +9,6 @@ interface Props {
   onChange: (value: string) => void;
   baseCode: string;
   includeBase?: boolean;
-  filterOut?: string;
 }
 
 export default function CurrencySelectContainer({
@@ -17,7 +16,6 @@ export default function CurrencySelectContainer({
   onChange,
   baseCode,
   includeBase = false,
-  filterOut,
 }: Props) {
   const { data, isLoading, isError } = useGetRatesQuery(baseCode);
 
@@ -33,30 +31,14 @@ export default function CurrencySelectContainer({
     );
   }
 
-  let currencyOptions = data ? Object.values(data).map((currency) => ({
+  const currencyOptions = data ? Object.values(data).map((currency) => ({
     code: currency.code,
     name: currency.name,
   })) : [];
 
-  if (includeBase) {
-    if (baseCode === "gbp") {
-      currencyOptions.unshift({ code: "GBP", name: "U.K. Pound Sterling" })
-    } else {
-    currencyOptions.unshift({ code: baseCode, name: baseCode });
-    }
+  if (includeBase && baseCode === "gbp") {
+    currencyOptions.unshift({ code: "GBP", name: "U.K. Pound Sterling" })
   }
-
-  if (filterOut) {
-    currencyOptions = currencyOptions.filter(
-      (option) => option.code !== filterOut.toUpperCase()
-    );
-  }
-
-  // Deduplicate
-  currencyOptions = currencyOptions.filter(
-    (option, index, array) =>
-      array.findIndex((o) => o.code === option.code) === index
-  );
 
   return (
     <div className="p-2 lg:p-4 m-0">

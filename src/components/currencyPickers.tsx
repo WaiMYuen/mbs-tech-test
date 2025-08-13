@@ -1,11 +1,10 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setBaseCurrency, setTargetCurrency } from "../features/conversion/conversionSlice";
 import { RootState } from "../app/store";
 import CurrencySelectContainer from "./currencySelect/currencySelectContainer";
 import { ArrowRightLeft  } from "lucide-react";
 
-export function CurrencyPickers() {
+export default function CurrencyPickers() {
   const dispatch = useDispatch();
   const { baseCurrency, targetCurrency } = useSelector(
     (state: RootState) => state.conversion
@@ -24,7 +23,6 @@ export function CurrencyPickers() {
         value={targetCurrency}
         onChange={(val) => dispatch(setTargetCurrency(val))}
         baseCode={baseCurrency}
-        filterOut={baseCurrency}
       />
     </div>
   );
